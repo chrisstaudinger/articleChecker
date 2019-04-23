@@ -3,7 +3,15 @@ require 'csv'
 input_file = File.read('./test.txt')
 # puts input_file
 # input_arr = []
-print input_arr = input_file.split(' ')
+# print input_arr = input_file.split(' ')
+
+
+#### cleans imported text
+cleaned_string = input_file.gsub(/[^\p{Alnum} -]/," ")
+cleaned_string = input_file.gsub(/[^0-9a-z ]/i," ")
+print cleaned_string
+input_arr = cleaned_string.split(" ")
+print input_arr
 
 
 res_hash = Hash.new
