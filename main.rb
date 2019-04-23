@@ -11,8 +11,8 @@ input_file = File.read(file_path)
 
 
 #### cleans imported text
-cleaned_string = input_file.gsub(/[^\p{Alnum} -]/," ")
-cleaned_string = input_file.gsub(/[^0-9a-z ]/i," ")
+# cleaned_string = input_file.gsub(/[^\p{Alnum} -]/," ").downcase()
+cleaned_string = input_file.gsub(/[^0-9a-z ]/i," ").downcase()
 # print cleaned_string
 input_arr = cleaned_string.split(" ")
 # print input_arr
