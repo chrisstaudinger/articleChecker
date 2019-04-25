@@ -4,23 +4,53 @@ require 'tty-font'
 # require 'APIProcesses.rb'
 require 'pry'
 
+### welcome part starts from here
 
-font = TTY::Font.new(:doom)
-welcome_message1 = font.write("Welcome  To", letter_spacing: 3)
-welcome_message2 = font.write("Article  Checker", letter_spacing: 3)
-puts Paint[welcome_message1, :green, :bright]
-puts Paint[welcome_message2, :green, :bright]
-# puts font.write("Article Checker")
+def welcome_window()
+  font = TTY::Font.new(:doom)
+  welcome_message1 = font.write("Welcome  To", letter_spacing: 3)
+  welcome_message2 = font.write("Article  Checker", letter_spacing: 3)
+  puts Paint[welcome_message1, :green, :bright]
+  puts Paint[welcome_message2, :green, :bright]
+end
 
-prompt_user_file_path = "Please input the file path of the file you would like to have checked"
+welcome_window() 
+
+### show welcome message and welcome part ends here
+
+prompt_user_file_path = "Please input the file path of the file you would like to have checked. File name must include its extension name."
 puts Paint[prompt_user_file_path, :blue, :bright]
 file_path = gets().chomp()
-input_file = File.read(file_path)
+
+# input error checking starts from here:
+
+### To Chiris: Please help to format the text using consistent colour as above (in blue)
+
+while (File.exist?(file_path)!=true)
+  puts "File path or file name does not exist or has not been provided correctly. Please re-enter your path and file name 
+  (notice extension name must be provided)."
+  file_path = gets().chomp()
+end
+
+f_ext_type = File.extname(file_path)
+while (f_ext_type != ".txt")
+  puts "File path or name is not accepted. Please make sure you only check pure text file. The extension name must 
+        be '.txt'.  Other file type is not allowed."
+  puts "Re-enter your text file name. "
+  file_path = gets().chomp()
+  f_ext_type = File.extname(file_path)
+end
+puts Paint["SUCCESS", :green, :bright]
+
+
+# input error checking ends here:
 
 #### cleans imported text
 def clean_text(str)
   str.scan /(?<=^|[^a-z])[a-z](?:[a-z'\d]*[a-z])?(?:[a-z-\d]*[a-z])?/i
 end
+
+input_file = File.read(file_path)
 arr_of_cleaned_text = clean_text(input_file)
 
 arr_of_cleaned_downcased_text = []
