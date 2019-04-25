@@ -2,6 +2,7 @@ require 'csv'
 require 'paint'
 require 'tty-font'
 # require 'APIProcesses.rb'
+require 'pry'
 
 
 font = TTY::Font.new(:doom)
@@ -17,38 +18,39 @@ file_path = gets().chomp()
 input_file = File.read(file_path)
 
 #### cleans imported text
-# cleaned_string = input_file.gsub(/[^\p{Alnum} -]/," ").downcase()
-cleaned_string = input_file.gsub(/[^0-9a-z ]/i," ").downcase()
-# print cleaned_string
-input_arr = cleaned_string.split(" ")
-# print input_arr
+def clean_text(str)
+  str.scan /(?<=^|[^a-z])[a-z](?:[a-z'\d]*[a-z])?(?:[a-z-\d]*[a-z])?/i
+end
+arr_of_cleaned_text = clean_text(input_file)
 
+arr_of_cleaned_downcased_text = []
+arr_of_cleaned_text.each do |word|
+  arr_of_cleaned_downcased_text << word.downcase()
+end
 
-res_hash = Hash.new
+res_hash = {}
 arrindex = 0
-while (arrindex < input_arr.length)
-  k = input_arr.count{|x| x == input_arr[arrindex]}
-  res_hash[input_arr[arrindex]] = k
+while (arrindex < arr_of_cleaned_downcased_text.length)
+  k = arr_of_cleaned_downcased_text.count{|x| x == arr_of_cleaned_downcased_text[arrindex]}
+  res_hash[arr_of_cleaned_downcased_text[arrindex]] = k
   arrindex +=1
 end
 print res_hash
-# print "\n", res_hash.to_a
+
 puts
 puts 
 puts
-# {"sitea.com" => 745, "siteb.com" => 9, "sitec.com" => 10 }
+
+# sort values from highest to lowest
 sorted_hash = res_hash.sort_by {|key, value| value}.reverse.to_h
-  # ==> {"siteb.com" => 9, "sitec.com" => 10, "sitea.com", 745}
 print sorted_hash
 
-
-
+# prompt user for input to name a file they'd like to data to be stored in
 prompt_user_to_name_output_file = "Input a name of your choice for the resulting data to be stored"
 puts Paint[prompt_user_to_name_output_file, :blue, :bright]
-
 output_file_name = gets().chomp()
 
-
+# push output to new or exisiting csv using user input
 CSV.open(output_file_name + ".csv", "ab") do |csv| 
     sorted_hash.to_a.each do |elem| 
         csv << elem
