@@ -27,16 +27,16 @@ file_path = gets().chomp()
 ### To Chiris: Please help to format the text using consistent colour as above (in blue)
 
 while (File.exist?(file_path)!=true)
-  puts "File path or file name does not exist or has not been provided correctly. Please re-enter your path and file name 
-  (notice extension name must be provided)."
+  puts Paint["File path or file name does not exist or has not been provided correctly. 
+Please re-enter your path and file name (notice extension name must be provided).", :red, :bright]
   file_path = gets().chomp()
 end
 
 f_ext_type = File.extname(file_path)
 while (f_ext_type != ".txt")
-  puts "File path or name is not accepted. Please make sure you only check pure text file. The extension name must 
-        be '.txt'.  Other file type is not allowed."
-  puts "Re-enter your text file name. "
+  puts Paint["""File path or name is not accepted. Please make sure you only check pure text file. 
+The extension name must be '.txt'.  Other file type is not allowed.
+Re-enter your text file name.""", :red, :bright]
   file_path = gets().chomp()
   f_ext_type = File.extname(file_path)
 end
@@ -53,10 +53,18 @@ end
 input_file = File.read(file_path)
 arr_of_cleaned_text = clean_text(input_file)
 
-arr_of_cleaned_downcased_text = []
-arr_of_cleaned_text.each do |word|
-  arr_of_cleaned_downcased_text << word.downcase()
+
+## Downcase Cleaned Text Array
+def downcase_text_arr(text_arr)
+  arr_of_cleaned_downcased_text = []
+  text_arr.each do |word|
+    arr_of_cleaned_downcased_text << word.downcase()
+  end
+  arr_of_cleaned_downcased_text
 end
+
+arr_of_cleaned_downcased_text = downcase_text_arr(arr_of_cleaned_text)
+
 
 res_hash = {}
 arrindex = 0
