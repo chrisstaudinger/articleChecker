@@ -21,6 +21,7 @@ def prompt_user_for_input_file_path()
   prompt_user_file_path = "Please input the file path of the file you would like to have checked. File name must include its extension name."
   puts Paint[prompt_user_file_path, :blue, :bright]
 end
+
 prompt_user_for_input_file_path()
 file_path = gets().chomp()
 
