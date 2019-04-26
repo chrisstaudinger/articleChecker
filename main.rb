@@ -3,8 +3,10 @@ require 'paint'
 require 'tty-font'
 require_relative './prompts/userPromptsAndFileChecking.rb'
 require_relative './textProcessing/textProcessing.rb'
+require_relative './spellcheckerFeature/spellcheck.rb'
 include Prompts_and_file_checking
 include TextProcessing
+include Spellchecker
 
 welcome_window() 
 
@@ -29,5 +31,7 @@ sorted_hash = sort_vals_high_to_low(keywords_vals_hash)
 print sorted_hash, "\n"
 
 save_res_csv(sorted_hash)
+
+spellcheck_file(arr_of_cleaned_text)
 
 exit_message()
