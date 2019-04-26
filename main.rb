@@ -4,8 +4,8 @@ require 'tty-font'
 # require 'APIProcesses.rb'
 require 'pry'
 
-### welcome part starts from here
 
+# Welcome To App Message
 def welcome_window()
   font = TTY::Font.new(:doom)
   welcome_message1 = font.write("Welcome  To", letter_spacing: 3)
@@ -16,41 +16,48 @@ end
 
 welcome_window() 
 
-### show welcome message and welcome part ends here
-
-prompt_user_file_path = "Please input the file path of the file you would like to have checked. File name must include its extension name."
-puts Paint[prompt_user_file_path, :blue, :bright]
+# Prompt user for a file they would like the app to use as input
+def prompt_user_for_input_file_path()
+  prompt_user_file_path = "Please input the file path of the file you would like to have checked. File name must include its extension name."
+  puts Paint[prompt_user_file_path, :blue, :bright]
+end
+prompt_user_for_input_file_path()
 file_path = gets().chomp()
 
-# input error checking starts from here:
-
-### To Chiris: Please help to format the text using consistent colour as above (in blue)
-
-while (File.exist?(file_path)!=true)
-  puts Paint["File path or file name does not exist or has not been provided correctly. 
+# Check file path exist. Prompt user for a correct file path
+def check_file_path_exist(file_path)
+  while (File.exist?(file_path)!=true)
+    puts Paint["File path or file name does not exist or has not been provided correctly. 
 Please re-enter your path and file name (notice extension name must be provided).", :red, :bright]
-  file_path = gets().chomp()
+    file_path = gets().chomp()
+  end
+  file_path
 end
 
-f_ext_type = File.extname(file_path)
-while (f_ext_type != ".txt")
-  puts Paint["""File path or name is not accepted. Please make sure you only check pure text file. 
+check_file_path_exist(file_path)
+
+# Check file's extension is .txt. Prompt user for correct file type
+def check_file_ext_is_txt(user_file_path)
+  f_ext_type = File.extname(user_file_path)
+  while (f_ext_type != ".txt")
+    puts Paint["""File path or name is not accepted. Please make sure you only check pure text file. 
 The extension name must be '.txt'.  Other file type is not allowed.
 Re-enter your text file name.""", :red, :bright]
-  file_path = gets().chomp()
-  f_ext_type = File.extname(file_path)
+    user_file_path = gets().chomp()
+    f_ext_type = File.extname(user_file_path)
+  end
+  user_file_path
 end
+
+checked_user_file_path = check_file_ext_is_txt(file_path)
 puts Paint["SUCCESS", :green, :bright]
-
-
-# input error checking ends here:
 
 #### cleans imported text
 def clean_text(str)
   str.scan /(?<=^|[^a-z])[a-z](?:[a-z'\d]*[a-z])?(?:[a-z-\d]*[a-z])?/i
 end
 
-input_file = File.read(file_path)
+input_file = File.read(checked_user_file_path)
 arr_of_cleaned_text = clean_text(input_file)
 
 
@@ -80,9 +87,8 @@ end
 keywords_vals_hash = count_times_keywords_are_used(arr_of_cleaned_downcased_text)
 print keywords_vals_hash
 
-puts
-puts 
-puts
+puts "\n" * 4
+
 
 # sort values from highest to lowest
 def sort_vals_high_to_low(hash)
