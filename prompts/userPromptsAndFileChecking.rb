@@ -59,9 +59,10 @@ module Prompts_and_file_checking
   end
 
   def exit_message()
-    sleep(2)
     font = TTY::Font.new(:doom)
+    sleep(5)
     exit_message1 = font.write("Thank  You  For  Using", letter_spacing: 2)
+    sleep(2)
     exit_message2 = font.write("Article  Checker", letter_spacing: 3)
     puts Paint[exit_message1, :green, :bright]
     puts Paint[exit_message2, :green, :bright]

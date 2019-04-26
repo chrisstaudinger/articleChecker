@@ -52,7 +52,7 @@ flagged_arr1 = ruby_hash["flaggedTokens"]
 
 prompt_user_to_name_output_file = "\nData has been created for you of words you have mispellt and the suggested correct spelling. \nPlease input a name of your choice for the resulting data to be stored"
 puts Paint[prompt_user_to_name_output_file, :blue, :bright]
-puts Paint["Your Output File Has been created for you '#{output_file_name}.csv'. It is in the same directory you opened this program in.", :green, :bright]
+
 
 def save_res_csv(input_arrr)
     output_file_name = gets().chomp()
@@ -63,6 +63,7 @@ def save_res_csv(input_arrr)
         csv << res_string
         end
     end 
+    puts Paint["Your Output File Has been created for you '#{output_file_name}.csv'. It is in the same directory you opened this program in.", :green, :bright]
   end
 
 save_res_csv(flagged_arr1)
