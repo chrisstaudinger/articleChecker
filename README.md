@@ -29,7 +29,7 @@ Article Checker returns spelling-cheking data from the Bing Spell Check API (fre
 
 The Ruby gems 'paint', 'artii','tty-font','net/http'and 'dinosaurus' are required to run Article Checker.
 
-To utilise the spellcheck feature users need to generate an API token from [Microsoft Azure's website](https://azure.microsoft.com/en-gb/try/cognitive-services/?api=text-analytics "Microsoft Azure API").
+API token expires on 01.05.2019. After this date a new token will need to be obtain from [Microsoft Azure](https://azure.microsoft.com/en-gb/try/cognitive-services/?api=text-analytics "Microsoft Azure API").
 
 
 ## Instructions for Use
@@ -38,65 +38,100 @@ Open Terminal or preferred console. To initialise the program enter:
 ```
 $ bundle install
 ```
-This will install the Gems specified in the Gemfile:
-
-'paint',<br/>'artii'<br/>'tty-font'<br/>'net/http'
 
 To initialise the program enter:
 ```
 $ ruby main.rb
 ```
-![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Screen%20Shot%202019-04-23%20at%2012.55.21%20pm.png)
+<!-- ![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Screen%20Shot%202019-04-23%20at%2012.55.21%20pm.png) -->
 
-3. After you see the welcome message, you need to provide the file path and file name for your text file. The file name needs to include its extension name.
-Pic placeholder
-4. If the file path is not provided correctly, the file does not exist or the file extension is not .txt. Error message will appear. And the program will not run.
-Pic placeholder
-5. If the file path and name are provided as required, the program proceeds to enable user specify the path and file name for the output .csv file.
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Screen%20Shot%202019-04-26%20at%207.06.59%20pm.png?raw=true)
+
+* After you see the welcome message, you need to provide the file path and file name for your text file. The file name needs to include its extension name.
+* If the file path is not provided correctly, the file does not exist or the file extension is not .txt. Error message will appear. And you will be asked to re-enter a file path.
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Error%20Handling%20User%20Input.png?raw=true)
+* If the file path and name are provided as required, the program proceeds to enable user to specify the path and file name for the output (csv file)
+* Similarly, if the file path or name are not provided as required. The program will continue to ask for the right file path and name.
 Pic
-6. Similarly, if the file path or name are not provided as required. The program will continue to ask for the right file path and name.
-Pic
-7. If the csv file is successfully created. The program will give a user prompt that indicates 'the csv file has been successfully created'.
-8. Consider add other user prompt in here
-Screenshots to be provided
-Accessibility:
-User of this program shall be able to see all the user prompt of the program and is not visually impaired. He/she shall also be able to type and enter the characters into the computer using the regular daily keyboard. People with hearing disability will find no problem using this app.   
-He/she shall, however, at least have a basic knowledge of using the file system of his OS. Knowing the concept of text file, file path and how to run a terminal and have latest version of ruby installed in his local machine. 
-Potential legal, moral, ethical, cultural and safety issues
-By downloading and using this app, you are deemed as having read all the documents we provide and agree to use this app per our instructions. 
-The app shall not be used for any illegal purpose or in a way that contradicts the common interest of or value held by your community or people in your country. 
-We are not responsible for any potential damage, loss of data, personal injury, mental problems or any negative consequence (physical or non-physical) on you or other third party resulted from using this program.
-Possible social, political, cultural, racial, gender and international issues
-The program and its instructions are written in Australian English. We do not have a plan to release non-english version of the program at the moment. However, we are open to opportunities to localise the program in your preferred area. If you are interested in helping us create a non-english version of the app. Please leave your email at the comment section below and we will contact you in due time.  
-Designing and Planning (more work needs to be done on this part!)
-Brainstorming & session evidence
-We start with a simple idea that we want to have a simple text checking tool that can largely fulfill the text checking function of major commerical software such as Microsoft word and Open Office. 
-For a MVP version of the software, the only feature we envisage at the beginning is informing users how many times he has used the same words in his article. Extra features discussed at the planning and scoping stages includes providing synonym to reduce the wordiness of the writing if a word appears too many times, spell-checking the article/essay and suggesting the correct spelling, letting user search for the words of his concern and tell him how many times it appears in the article, and counting the verbs in different tense.
+* If the csv file is successfully created. The program will give a user prompt that indicates 'the csv file has been successfully created'.
+
+## Future Enhancements
+
+* Integration of the Synonym functionality that had not finished implementing.
+* Cleaner output of the spellchecking feature by only outputting the mispelled words.
+* Audio track for those that are visually impaired.
+* Ability for users to search parameters and return 
+  * Defintion
+  * Synonyms & antonyms
+  * Spelling
+  * Examples of the word in a sentence
+* Acceptance of a wider range of file types
+* Ability for the user to choose a file using their GUI
+
+
+
+### Accessibility
+* Users with a hearing disability will have no problem using this app
+* Users with a visual impairment should be able to increase text size and change the font and background colour depending on the terminal program they wish to use, we also recommend a command line screen reader to be used.
+* The user will also need to interact with a keyboard to use this app. For those that are visually impaired, we recommend using a large print keyboard or a braille keyboard sticker.
+* Future versions of this app will include an audio track for those that are visually impaired.
+ 
+
+### Potential issues
+#### Moral and Ethical
+* Using the synonym feature that will be included in the future version of the app could potentially alter facts or direct quotes included in the user's article.
+#### Legal
+* Considering the situation mentioned above, the user may be deemed responsible for any false claims stated in their article.
+#### Cultural and Racial
+* This app was originally built for english-speaking users which poses an issue in itself.
+* Feature versions of the app will have the ability to detect other languages as well, though we are not in the position to ensure that the synonym feature of this app will work appropriately for those languages and so this is another issue that will arise.
+#### Social and Political
+* An incorrect use of a word that was suggested by our synonym feature may cause quotes to be politically incorrect.
+
+
+## Brainstroming
+
+A text editor was used for the initial brainstorming of app ideas. There was discussion of each idea about the limitations, difficulties, extendability, API integration and so on. From here 8 ideas were shortlisted.
+
+Article Checker was the idea chosen and the planning out of building the app continued on Trello from there. 
+
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Brainstorming.png?raw=true)
+
+## Task Management
+We utilised Trello as our task management software allowing us to define the features, workflow and logic for a minimum viable product. Moreover, we broke down features and itemised tasks to be performed. We also utilised the descriptions and comments on tasks that we broke down, making it very clear what was going on. With Trello workflow was done in a very systematic and organised manner.
+
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Trello%20Task%20Management%20Workflow.png?raw=true)
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Trello%202.png?raw=true)
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Trello%203.png?raw=true)
+
+
+### User stories
+* As a blogger, I want to be able to spell check my article so that my blog posts look professional.
+* As a writer, I want to make sure that I don't use the same words too often so that my book doesn't sound repetitive. 
+* As a PhD student, I want to make sure I use a wide range of verbs and adjectives so that my thesis sounds more intelligent.
+* As a keynote speaker, I want to have a clear idea of the words I'm using the most, how often the words are used and how many unique word I have so that my speech is intriguing
+* As an employee, I want to make sure the emails I write are properly spell checked to avoid embarrassment. 
+
+We started with a simple idea to have a simple text checking tool.
+For the MVP version of the software, the only feature we envisaged at the beginning was informing users how many times they had used the same words in their article. Extra features discussed at the planning and scoping stages includes providing synonym to reduce the wordiness of the writing if a word appears too many times, spell-checking the article/essay and suggesting the correct spelling.
+
 Project plan
 The following plan for time allocation is determined at Day 1 morning:
 Day 1 determine what features that will be available to MVP and an improved product in the future. Complete the coding for MVP.
 Day 2 solve the problems left by day 1 for MVP and attempt to add the extra features 
 Day 3 finalise the features of the app and improve the UI/UX for the software and complete the documentation and user guide. 
-# to be completed
-brainstorming1
-brainstorming2
-brainstorming3
-brainstorming
-Task Management
-Trello allowed us to define the features, flow and logic for a minimum viable product, breakdown and itemise current tasks to be performed and scope out future enhancements or challenges to overcome, in a much more organised and systematic manner.
-Screenshot placeholder?
+
 Whiteboard:
 1.  List each day's target.
 2.  Summarise progress each day.
 3.  Layout to-do list or next steps
 4.  Drop down all the problems encountered, matched with key words of solution
-5.  Result visioning: use white board to show how the final result is presented in the csv file.
+*  Result visioning: use white board to show how the final result is presented in the csv file.
 Screenshot placeholder？
 Project Timeline
-Day 1 
-Morning is spent on developing a basic desription for each part of program flow for MVP. The end result is shown as below:
-      show pic of whiteboard or trello
-Afternoon is about actual code writing. The part we spent most of time is to find the right way to remove all non-alphanumeric characters in any text and write code to store result in CSV and output it in a readable format.
+*y 1 
+Morning is spent on developing a basic desription for each part of program flow for MVP. The end result is shown as below:*    show pic of whiteboard or trello
+Afternoon is about actual code writing. The part we spent most of time is to find the right way to remove all non-al*anumeric characters in any text and write code to store result in CSV and output it in a readable format.
 show pic of whiteboard or trello
 other parts of providing user prompt or utilising gems to format the prompt message is less of a challenge. 
 At the end of day 1, the MVP is already completed and uploaded to github.
@@ -225,7 +260,8 @@ __Extended Features: Search method which will return the amount of times the giv
 * A link to your GitHub repository
 * Ensure the repository (​repo​) is accessible by your Educators
 * Description of the ​app​, including,
-* Purpose○Functionality
+* Purpose
+* Functionality
 * Instructions for use
 * Screenshots
 * Future enhancements
