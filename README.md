@@ -145,7 +145,7 @@ __Clean Code__ was a very strong focus of our app. In the 2-3day timeframe that 
 
 __Modules__ We had a large focus on keeping the code base 'DRY'. The app was broken down into multiple files. All code where appropriate was referenced in methods and parsed into modules. Classes and objects weren't utilised as it did not make sense to use them in this apps current version. 
 
-__Methods__ The app heavily focused on methods inlcuding regex.
+__Methods & Testing__ The app heavily focused on methods inlcuding regex. Comprehensive amounts of testing were conducted throughtout the entire build.
 
 ___
 
