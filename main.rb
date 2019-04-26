@@ -66,31 +66,48 @@ end
 arr_of_cleaned_downcased_text = downcase_text_arr(arr_of_cleaned_text)
 
 
-res_hash = {}
-arrindex = 0
-while (arrindex < arr_of_cleaned_downcased_text.length)
-  k = arr_of_cleaned_downcased_text.count{|x| x == arr_of_cleaned_downcased_text[arrindex]}
-  res_hash[arr_of_cleaned_downcased_text[arrindex]] = k
-  arrindex +=1
+def count_times_keywords_are_used(arr)
+  res_hash = {}
+  arrindex = 0
+  while (arrindex < arr.length)
+    k = arr.count{|x| x == arr[arrindex]}
+    res_hash[arr[arrindex]] = k
+    arrindex +=1
+  end
+  res_hash
 end
-print res_hash
+
+keywords_vals_hash = count_times_keywords_are_used(arr_of_cleaned_downcased_text)
+print keywords_vals_hash
 
 puts
 puts 
 puts
 
 # sort values from highest to lowest
-sorted_hash = res_hash.sort_by {|key, value| value}.reverse.to_h
+def sort_vals_high_to_low(hash)
+  result = hash.sort_by {|key, value| value}.reverse.to_h
+end
+
+sorted_hash = sort_vals_high_to_low(keywords_vals_hash)
 print sorted_hash
 
 # prompt user for input to name a file they'd like to data to be stored in
-prompt_user_to_name_output_file = "Input a name of your choice for the resulting data to be stored"
-puts Paint[prompt_user_to_name_output_file, :blue, :bright]
-output_file_name = gets().chomp()
-
-# push output to new or exisiting csv using user input
-CSV.open(output_file_name + ".csv", "ab") do |csv| 
-    sorted_hash.to_a.each do |elem| 
-        csv << elem
-    end 
+def prompt_user_to_name_save_file()
+  prompt_user_to_name_output_file = "Input a name of your choice for the resulting data to be stored"
+  puts Paint[prompt_user_to_name_output_file, :blue, :bright]
+  output_file_name = gets.chomp
 end
+
+# Save resulted output
+def save_res_csv(output_hash)
+  output_file_name = prompt_user_to_name_save_file()
+    CSV.open(output_file_name + ".csv", "ab") do |csv| 
+        output_hash.to_a.each do |elem| 
+            csv << elem
+    end 
+  end
+end
+
+save_res_csv(sorted_hash)
+
