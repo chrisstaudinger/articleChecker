@@ -13,18 +13,7 @@ Article Checker is designed to be a tool for anyone who is writting an important
 
 ### Functionality
 
-Within the app's scope as an MVP users have to ability to pass in their file of choice to the app.<br/><br/> The app will then provide the user feeback of all the words they have used and the amount of times each word has been used.<br/><br/> The app takes in user input to store the resulting output keyword occurences in a file of their choice. <br/><br/> Article Checker also provides the results of it's spell-checking in another file chosen by the user input.
-
-## Dependencies
-
-
-
-__MVP: This Terminal App will check through a text file and return the keywords and the amount of times each keyword has been used.__
-__Extended Features: Search method which will return the amount of times the given parameter has been used__
-
-(to be rewritten – includes full features chris may helps to improve the expressions I use)
-Designed as an handy tool to help any person using computer to write, Article Checker counts and reports times of occurence for each word within a text file. It also spell-checks each word and make recommendations for correcting the wrong spelling.       
-Functionality (to include more features and its descriptions)
+Within the app's scope as an MVP functionality includes:  
 1. Enable users to pass any text file they want to check to machine by specifying text file path (word count is however limited to 500 per text file).
 2. The app analyses repetitions of each word and output the analysis result to a CSV file (eg. "word A, 5")
 3. The app checks spelling of each word and recommends correct spelling and the result is output as a CSV file (eg. "wrrd, suggestion:word")
@@ -34,13 +23,26 @@ Functionality (to include more features and its descriptions)
     b. the type of file to be checked is .txt only.
 Dependencies (only covered by Linda Lai template, not sure this is a requirement from rubric)
 The Ruby gems 'paint','tty-font', 'net/http' and 'json' are required to run myMDb.
-Article Checker returns spelling-cheking data from the Bing Spell Check API (free limit is capped at 5,000 transactions). Users need to generate an API key (free token expires in 7 days)from https://azure.microsoft.com/en-au/services/cognitive-services/spell-check/.
-Bing Spell Check API
-Instructions for Use
-1. gem 'paint' and gem 'tty-font', both of which helps to format the user prompt text needs to be installed before you can run the program correctly.  
-To install the required gems, enter: 
-$ gem install paint
-$ gem install tty-font
+Article Checker returns spelling-cheking data from the Bing Spell Check API (free limit is capped at 5,000 transactions).
+
+## Dependencies
+
+The Ruby gems 'paint', 'artii','tty-font','net/http'and 'dinosaurus' are required to run Article Checker.
+
+To utilise the spellcheck feature users need to generate an API token from [Microsoft Azure's website](https://azure.microsoft.com/en-gb/try/cognitive-services/?api=text-analytics "Microsoft Azure API").
+
+
+## Instructions for Use
+
+Open Terminal or preferred console. To initialise the program enter:
+```
+$ bundle install
+```
+This will install the Gems specified in the Gemfile:
+
+'paint',<br/>'artii'<br/>'tty-font'<br/>'net/http'
+
+
 2. To call the program, enter:
 $ ruby main.rb (or other name we give)
 3.After you see the welcome message, you need to provide the file path and file name for your text file. The file name needs to include its extension name.
@@ -209,6 +211,8 @@ results {
 results > results.csv
 ```
 
+__MVP: This Terminal App will check through a text file and return the keywords and the amount of times each keyword has been used.__
+__Extended Features: Search method which will return the amount of times the given parameter has been used__
 
 
 
