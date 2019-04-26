@@ -1,6 +1,7 @@
 require 'csv'
 require 'paint'
 require 'tty-font'
+require 'artii'
 require_relative './prompts/userPromptsAndFileChecking.rb'
 require_relative './textProcessing/textProcessing.rb'
 require_relative './spellcheckerFeature/spellcheck.rb'

@@ -1,89 +1,28 @@
-# Terminal App Ideas
+# Terminal App: Article Checker
+A tool to help any writer, running in the Bash command line written in Ruby.
 
-1. To do list
-2. musicplayer (plays songs from genres)
-3. alarm clock
-4. journal (prints to a text file)
-5. scraper (predecessor)
-6. basic accounting software
-7. Financial Planning Software
-8. # Article Checker
+## Contributors
+### Brian Jian Zhao, Christopher Staudinger<br/>
 
-### Article Checker Synopsis
+#### Link
+https://github.com/chrisstaudinger/articleChecker
+
+## Purpose 
+
+Article Checker is designed to be a tool for anyone who is writting an important piece of text and wants to have it checked over to see where it can be improved. The app counts and reports times of occurence for each word within a text file. It also spell-checks each word and make recommendations for correcting the wrong spelling.   
+
+### Functionality
+
+Within the app's scope as an MVP users have to ability to pass in their file of choice to the app.<br/><br/> The app will then provide the user feeback of all the words they have used and the amount of times each word has been used.<br/><br/> The app takes in user input to store the resulting output keyword occurences in a file of their choice. <br/><br/> Article Checker also provides the results of it's spell-checking in another file chosen by the user input.
+
+## Dependencies
+
+
+
 __MVP: This Terminal App will check through a text file and return the keywords and the amount of times each keyword has been used.__
 __Extended Features: Search method which will return the amount of times the given parameter has been used__
 
-    * read of txt file. put analysis into csv (log, storage)
-    * testing
-    * csv module
-    * search by first letter of word. extendability. regex
-    * synonyms, api. dictionary .com or theasaurus.com or something
-    * couple of user_stories. All things like this in READEME.md
-    * screenshots and evidence of forethought etc in README.md; eg trello screenshots
-    * presentation slides. very basic
-
-
-input = "the dog, cat and tree went swimming. A shark ate them all!"
-
-
-Algorathim process input
-
-Return 
-The = 1 
-Dog, = 
-Name = 1
-Is = 2
-Lucky = 2
-A = 1
-
-
-Search(lucky)
-
-
-
-Return lucky = 2
-
-
-
-
-### Read text file
-```input_file = 'The fox, dog and cat jumps over the fence. The seal came along, test-word. and the seal fox dog'```
-### Remove grammar from text
-```cleaned_string = 'The fox dog and cat jumps over the fence The seal came along test-word and the seal fox dog'```
-### Obtain indidual words from text and store as array values
-``` Ruby
-array = ['The' 'fox' 'dog' 'and'...]
-unique_words = [...]
-```
-### Store each unique keyword as key in a hash and the value of each key to be how many times that keyword was used in text
-```Ruby
-results {
-  'fox': 2,
-  'dog': 3
-}
-
-results > results.csv
-```
-
-
-
-
-
-
-
-
-# TO BE UPDATED
-
-Terminal App: Article checker v1.0
-<!-- Handy tool to help any writer running in the Bash command line written in Ruby. -->
-Contributors
-|[Brian Jian Zhao] https://github.com/placeholder| # to be changed
-[Christopher Staudinger] https://github.com/placeholder| # to be changed
-|-----------|-----------|
-| Brian Jian Zhao | Christopher Staudinger |
-Link
-https://github.com/placehoder/placeholder
-Purpose (to be rewritten – includes full features chris may helps to improve the expressions I use)
+(to be rewritten – includes full features chris may helps to improve the expressions I use)
 Designed as an handy tool to help any person using computer to write, Article Checker counts and reports times of occurence for each word within a text file. It also spell-checks each word and make recommendations for correcting the wrong spelling.       
 Functionality (to include more features and its descriptions)
 1. Enable users to pass any text file they want to check to machine by specifying text file path (word count is however limited to 500 per text file).
@@ -191,3 +130,107 @@ Typical User scenario:
 A student finishes his school essay. For some reasons, Microsoft word is running super slow /crashes on his/her computer and the student just want to have some quick checks on his writing without spending too much time figuring out what’s going wrong with Microsoft software. He/she then saves his word file into .txt format and runs this program and get the analysis result for his writing in CSV format. 
 The CSV file can be viewed directly by windows notepad or opened by other CSV reader or database file reader if the student feel uncomfortable reading raw CSV file or want to do some further analysis beyond what we can provide in this app.   
 Add Comment
+
+
+
+
+
+
+
+
+
+
+
+
+# Terminal App Ideas
+
+1. To do list
+2. musicplayer (plays songs from genres)
+3. alarm clock
+4. journal (prints to a text file)
+5. scraper (predecessor)
+6. basic accounting software
+7. Financial Planning Software
+8. # Article Checker
+
+### Article Checker Synopsis
+__MVP: This Terminal App will check through a text file and return the keywords and the amount of times each keyword has been used.__
+__Extended Features: Search method which will return the amount of times the given parameter has been used__
+
+    * read of txt file. put analysis into csv (log, storage)
+    * testing
+    * csv module
+    * search by first letter of word. extendability. regex
+    * synonyms, api. dictionary .com or theasaurus.com or something
+    * couple of user_stories. All things like this in READEME.md
+    * screenshots and evidence of forethought etc in README.md; eg trello screenshots
+    * presentation slides. very basic
+
+
+input = "the dog, cat and tree went swimming. A shark ate them all!"
+
+
+Algorathim process input
+
+Return 
+The = 1 
+Dog, = 
+Name = 1
+Is = 2
+Lucky = 2
+A = 1
+
+
+Search(lucky)
+
+
+
+Return lucky = 2
+
+
+
+
+### Read text file
+```input_file = 'The fox, dog and cat jumps over the fence. The seal came along, test-word. and the seal fox dog'```
+### Remove grammar from text
+```cleaned_string = 'The fox dog and cat jumps over the fence The seal came along test-word and the seal fox dog'```
+### Obtain indidual words from text and store as array values
+``` Ruby
+array = ['The' 'fox' 'dog' 'and'...]
+unique_words = [...]
+```
+### Store each unique keyword as key in a hash and the value of each key to be how many times that keyword was used in text
+```Ruby
+results {
+  'fox': 2,
+  'dog': 3
+}
+
+results > results.csv
+```
+
+
+
+
+
+### Project documentation is to be compiled as a single markdown file namedREADME.md
+### This file should contain:
+* A link to your GitHub repository
+* Ensure the repository (​repo​) is accessible by your Educators
+* Description of the ​app​, including,
+* Purpose○Functionality
+* Instructions for use
+* Screenshots
+* Future enhancements
+* Accessibility concerns
+* Potential legal, moral, ethical, cultural and safety issues○Possible social, political, cultural, racial, gender andinternational issues
+* Details of design & planning process including,
+* Evidence of ​app​ idea brainstorming sessions
+* User stories
+* Project plan & timeline○Description of overall app design (classes, files, basic flow)
+* Design considerations and choices
+* Screenshots of Trello board(s)
+
+
+
+
