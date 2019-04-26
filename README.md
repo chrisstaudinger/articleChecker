@@ -42,10 +42,13 @@ This will install the Gems specified in the Gemfile:
 
 'paint',<br/>'artii'<br/>'tty-font'<br/>'net/http'
 
+To initialise the program enter:
+```
+$ ruby main.rb
+```
+![photo](https://github.com/chrisstaudinger/articleChecker/blob/master/Images/Screen%20Shot%202019-04-23%20at%2012.55.21%20pm.png)
 
-2. To call the program, enter:
-$ ruby main.rb (or other name we give)
-3.After you see the welcome message, you need to provide the file path and file name for your text file. The file name needs to include its extension name.
+3. After you see the welcome message, you need to provide the file path and file name for your text file. The file name needs to include its extension name.
 Pic placeholder
 4. If the file path is not provided correctly, the file does not exist or the file extension is not .txt. Error message will appear. And the program will not run.
 Pic placeholder
