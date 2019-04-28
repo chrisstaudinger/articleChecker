@@ -21,9 +21,6 @@ Within the app's scope as an MVP functionality includes:
 5. Built-in error handling procedures to ensure that: 
     a. the file to be checked exists and file path is correct
     b. the type of file to be checked is .txt only.
-Dependencies (only covered by Linda Lai template, not sure this is a requirement from rubric)
-The Ruby gems 'paint','tty-font', 'net/http' and 'json' are required to run myMDb.
-Article Checker returns spelling-cheking data from the Bing Spell Check API (free limit is capped at 5,000 transactions).
 
 ## Dependencies
 
